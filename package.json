@@ -1,0 +1,40 @@
+{
+  "name": "gendiff-project-hexlet",
+  "version": "0.0.1",
+  "description": "Вычислитель отличий",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "start": "node bin/gendiff.js -h"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nullorone/frontend-project-lvl2.git"
+  },
+  "engines": {
+    "node": ">=13.10.1",
+    "npm": ">=6.13.7"
+  },
+  "keywords": [
+    "hexlet",
+    "js",
+    "nodejs",
+    "gendiff"
+  ],
+  "author": "nullorone:sy.v@mail.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nullorone/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/nullorone/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "commander": "5.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.20.2"
+  },
+  "dependencies": {}
+}
