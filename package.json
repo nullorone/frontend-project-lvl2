@@ -8,7 +8,8 @@
     "gendiff": "bin/gendiff.js"
   },
   "scripts": {
-    "start": "node bin/gendiff.js -h"
+    "start": "node bin/gendiff.js -h",
+    "test": "npx -n --experimental-vm-modules jest"
   },
   "repository": {
     "type": "git",
@@ -30,13 +31,19 @@
     "url": "https://github.com/nullorone/frontend-project-lvl2/issues"
   },
   "homepage": "https://github.com/nullorone/frontend-project-lvl2#readme",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "devDependencies": {
     "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.1.0",
     "eslint-plugin-import": "2.20.2",
-    "jest": "25.5.4"
+    "eslint-plugin-jest": "23.8.2",
+    "jest": "^25.5.3",
+    "jest-cli": "^25.5.3"
   },
   "dependencies": {
+    "@jest/globals": "^25.5.2",
     "commander": "5.1.0"
   }
 }
