@@ -1,6 +1,6 @@
 {
   "name": "gendiff-project-hexlet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Вычислитель отличий",
   "main": "src/index.js",
   "type": "module",
