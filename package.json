@@ -31,10 +31,12 @@
   },
   "homepage": "https://github.com/nullorone/frontend-project-lvl2#readme",
   "devDependencies": {
-    "commander": "5.1.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.1.0",
-    "eslint-plugin-import": "2.20.2"
+    "eslint-plugin-import": "2.20.2",
+    "jest": "25.5.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "5.1.0"
+  }
 }
