@@ -1,4 +1,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b2d632414ac7bf9d1547/maintainability)](https://codeclimate.com/github/nullorone/frontend-project-lvl2/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b2d632414ac7bf9d1547/test_coverage)](https://codeclimate.com/github/nullorone/frontend-project-lvl2/test_coverage)
 [![Run tests CI](https://github.com/nullorone/frontend-project-lvl2/workflows/Run%20tests/badge.svg)](https://github.com/nullorone/frontend-project-lvl2/actions)
 ### Вычислитель отличий
 
