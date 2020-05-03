@@ -4,8 +4,8 @@ import path from 'path';
 const compareObj = (src1, src2) => {
   const result = {};
 
-  for (const key in src1) {
-    if (key in src2) {
+  Object.keys(src1).forEach((key) => {
+    if ({}.hasOwnProperty.call(src2, key)) {
       if (src1[key] === src2[key]) {
         result[`  ${key}`] = src1[key];
       } else {
@@ -15,13 +15,13 @@ const compareObj = (src1, src2) => {
     } else {
       result[`- ${key}`] = src1[key];
     }
-  }
+  });
 
-  for (const key in src2) {
-    if (!(key in src1)) {
+  Object.keys(src2).forEach((key) => {
+    if (!({}.hasOwnProperty.call(src1, key))) {
       result[`+ ${key}`] = src2[key];
     }
-  }
+  });
 
   return result;
 };
