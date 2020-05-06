@@ -1,39 +1,32 @@
 import fs from 'fs';
 import path from 'path';
+import jsYaml from 'js-yaml';
+import compareObj from './parsers.js';
 
-const compareObj = (src1, src2) => {
-  const result = {};
+const selectParser = (pathFile1, pathFile2) => {
+  let extFile = '';
+  const file1 = fs.readFileSync(path.resolve(process.cwd(), pathFile1), 'utf8');
+  const file2 = fs.readFileSync(path.resolve(process.cwd(), pathFile2), 'utf8');
 
-  Object.keys(src1).forEach((key) => {
-    if ({}.hasOwnProperty.call(src2, key)) {
-      if (src1[key] === src2[key]) {
-        result[`  ${key}`] = src1[key];
-      } else {
-        result[`+ ${key}`] = src2[key];
-        result[`- ${key}`] = src1[key];
-      }
-    } else {
-      result[`- ${key}`] = src1[key];
-    }
-  });
+  if (path.extname(pathFile1) === '.json' && path.extname(pathFile2) === '.json') {
+    extFile = 'json';
+  } else if ((path.extname(pathFile1) === '.yaml' || path.extname(pathFile1) === '.yml') && (path.extname(pathFile2) === '.yaml' || path.extname(pathFile2) === '.yml')) {
+    extFile = 'yaml';
+  } else if (extFile === '') {
+    throw new Error('Not correct file type');
+  }
 
-  Object.keys(src2).forEach((key) => {
-    if (!({}.hasOwnProperty.call(src1, key))) {
-      result[`+ ${key}`] = src2[key];
-    }
-  });
+  if (extFile === 'yaml') {
+    return [jsYaml.safeLoad(file1), jsYaml.safeLoad(file2)];
+  }
 
-  return result;
+  return [JSON.parse(file1), JSON.parse(file2)];
 };
 
 const getDiff = (path1, path2) => {
-  const file1 = fs.readFileSync(path.resolve(process.cwd(), path1));
-  const file2 = fs.readFileSync(path.resolve(process.cwd(), path2));
+  const [obj1, obj2] = selectParser(path1, path2);
 
-  const serializeFile1 = JSON.parse(file1);
-  const serializeFile2 = JSON.parse(file2);
-
-  const result = JSON.stringify(compareObj(serializeFile1, serializeFile2), null, ' ');
+  const result = JSON.stringify(compareObj(obj1, obj2), null, ' ');
 
   return result;
 };
