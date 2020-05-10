@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import jsYaml from 'js-yaml';
+import iniParser from 'ini';
 import compareObj from './parsers.js';
 
 const selectParser = (pathFile1, pathFile2) => {
@@ -12,15 +13,20 @@ const selectParser = (pathFile1, pathFile2) => {
     extFile = 'json';
   } else if ((path.extname(pathFile1) === '.yaml' || path.extname(pathFile1) === '.yml') && (path.extname(pathFile2) === '.yaml' || path.extname(pathFile2) === '.yml')) {
     extFile = 'yaml';
+  } else if (path.extname(pathFile1) === '.ini' && path.extname(pathFile2) === '.ini') {
+    extFile = 'ini';
   } else if (extFile === '') {
     throw new Error('Not correct file type');
   }
 
-  if (extFile === 'yaml') {
-    return [jsYaml.safeLoad(file1), jsYaml.safeLoad(file2)];
+  switch (extFile) {
+    case ('yaml'):
+      return [jsYaml.safeLoad(file1), jsYaml.safeLoad(file2)];
+    case ('ini'):
+      return [iniParser.parse(file1), iniParser.parse(file2)];
+    default:
+      return [JSON.parse(file1), JSON.parse(file2)];
   }
-
-  return [JSON.parse(file1), JSON.parse(file2)];
 };
 
 const getDiff = (path1, path2) => {
