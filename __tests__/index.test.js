@@ -33,3 +33,13 @@ test('get diff yaml files', () => {
 
   expect(diff).toBe(result);
 });
+
+test('get diff ini files', () => {
+  const path1 = path.resolve(__dirname, 'fixtures/before.ini');
+  const path2 = path.resolve(__dirname, 'fixtures/after.ini');
+
+  const diff = getDiff(path1, path2);
+  const result = getResult();
+
+  expect(diff).toBe(result);
+});
