@@ -12,3 +12,7 @@
 
 Пример сравнения yaml-файлов
 [![asciicast](https://asciinema.org/a/PpWRCkaA7KEsKJc6azR3h1ROQ.svg)](https://asciinema.org/a/PpWRCkaA7KEsKJc6azR3h1ROQ)
+[![asciicast](https://asciinema.org/a/yVKBIgczrfNIB0eP54Kpvz0Qz.svg)](https://asciinema.org/a/yVKBIgczrfNIB0eP54Kpvz0Qz)
+
+Пример сравнения ini-файлов
+[![asciicast](https://asciinema.org/a/JEEwbqCzt6Dh3VVbz5rjYKF0z.svg)](https://asciinema.org/a/JEEwbqCzt6Dh3VVbz5rjYKF0z)
